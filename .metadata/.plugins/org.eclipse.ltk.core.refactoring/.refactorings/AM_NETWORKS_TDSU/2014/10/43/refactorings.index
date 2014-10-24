@@ -2,3 +2,5 @@
 1414105077582	Rename package 'br.com.lca.dao.imp'
 1414187259915	Delete element
 1414187775476	Rename package 'br.com.lca.dao'
+1414189231342	Move compilation units
+1414190372038	Encapsulate field 'tipoTarefa'
