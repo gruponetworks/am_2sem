@@ -3,4 +3,10 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.honorario.TipoTarefa"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.connection.ConectionManager"/>
+<fullyQualifiedTypeName name="br.com.lca.bo.ProcessoBO"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.implementation.ProcessoDAO"/>
+<fullyQualifiedTypeName name="java.lang.ClassNotFoundException"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="br.com.lca.exception.LcaExpection"/>
 </qualifiedTypeNameHistroy>
