@@ -1,6 +1,6 @@
 package br.com.lca.beans.honorario;
 
-public class TipoTarefa {
+public class TipoTarefa{
 
 	private int codigo;
 	private String descricao;

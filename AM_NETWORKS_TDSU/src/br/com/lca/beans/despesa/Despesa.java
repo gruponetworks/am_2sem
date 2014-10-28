@@ -9,7 +9,7 @@ public class Despesa {
 	private double valor;
 	private String observacao;
 	private int numeroProcesso;
-	
+
 	private TipoDespesa tipoDespesa;
 
 	public Despesa() {
