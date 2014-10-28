@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.honorario.TipoTarefa"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.connection.ConectionManager"/>
 <fullyQualifiedTypeName name="br.com.lca.bo.ProcessoBO"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.implementation.ProcessoDAO"/>
 <fullyQualifiedTypeName name="java.lang.ClassNotFoundException"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="br.com.lca.beans.processo.Cliente"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="br.com.lca.beans.processo.Periodo"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.ProcessoDAO"/>
+<fullyQualifiedTypeName name="br.com.lca.beans.processo.Processo"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="br.com.lca.beans.EntidadeLCA"/>
 <fullyQualifiedTypeName name="br.com.lca.exception.LcaExpection"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.CRUD"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.HonorarioDAO"/>
+<fullyQualifiedTypeName name="br.com.lca.beans.honorario.Honorario"/>
 </qualifiedTypeNameHistroy>
