@@ -1,13 +1,10 @@
 package br.com.lca.servlets;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,15 +19,32 @@ import br.com.lca.exception.LcaExpection;
 @WebServlet("/processoServlet")
 public class ProcessoServlet extends HttpServlet {
 
+	private static final long serialVersionUID = -419799537927220260L;
+
 	@Override
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) {
 		doPost(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) {
+		switch (request.getParameter("operacao")) {
+
+		case "listarProcesso":
+			listarProcesso(request);
+			break;
+		case "verificaBloqeio":
+			break;
+		case "verificaEncerrado":
+			break;
+		}
+
+		listarProcesso(request);
+	}
+
+	private void listarProcesso(HttpServletRequest request) {
 		try {
 			String numeroProcesso = request.getParameter("numeroDoProcesso");
 			String nomeCliente = request.getParameter("nomeDoCliente");
@@ -71,6 +85,9 @@ public class ProcessoServlet extends HttpServlet {
 				request.setAttribute("mensagemErro",
 						"Informe um número de processo, cliente ou período para busca.");
 			}
+
+			request.setAttribute("listaProcesso", retornoBusca);
+
 		} catch (LcaExpection excecao) {
 			request.setAttribute("mensagemErro", excecao.getMessage());
 		} catch (NumberFormatException excecao) {
