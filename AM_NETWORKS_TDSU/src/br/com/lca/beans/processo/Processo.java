@@ -16,7 +16,11 @@ public class Processo {
 	public Processo() {
 		
 	}
-
+	
+	public Processo(int codigo) {
+		this.codigo = codigo;
+	}
+		
 	public Processo(int codigo, String descricao, Calendar dataAbertura,
 			Calendar dataFechamento, int situacao, Cliente cliente,
 			Advogado advogado) {

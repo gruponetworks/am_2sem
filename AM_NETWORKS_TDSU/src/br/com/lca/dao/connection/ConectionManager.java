@@ -12,43 +12,47 @@ import br.com.lca.exception.LcaExpection;
  */
 public class ConectionManager {
 
-	public static ConectionManager instance;
+	String usuario = "";
+	String senha = "";
+	String jdbcUrl = "";
+
+	public static ConectionManager INSTANCE;
 
 	private ConectionManager() throws ClassNotFoundException {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 	}
-	
+
 	public static ConectionManager getInstance() throws LcaExpection {
 		try {
-			if (instance.equals(null)) {
-				instance = new ConectionManager();
+			if (INSTANCE.equals(null)) {
+				INSTANCE = new ConectionManager();
 			}
-			return instance;
+			return INSTANCE;
 		} catch (ClassNotFoundException e) {
 			throw new LcaExpection(
 					"O driver de JDBC Oracle não foi encontrado.");
 		}
 	}
-	
-public Connection getConnection() throws LcaExpection {
-				
-		
-		// parametros da conexao
-		String usuario = "OPS$RMXXXXX";
-		String senha = "DDMMAA";
-		String jdbcUrl = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL"; //acesso externo
-		//String jdbcUrl = "jdbc:oracle:thin:@192.168.60.15:1521:ORCL"; //acesso interno
-		//String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:XE"; //acesso local express edition
-		
-		
-		try{
+
+	public Connection getConnection() throws LcaExpection {
+		try {
 			return DriverManager.getConnection(jdbcUrl, usuario, senha);
-	
-		}
-		catch (SQLException e) {
-			
+
+		} catch (SQLException e) {
+
 			e.printStackTrace();
 			throw new LcaExpection("Erro ao abrir a conexão com banco de dados");
+		}
+	}
+
+	public void closeConnection(Connection conexao) throws LcaExpection {
+		if (conexao != null) {
+			try {
+				conexao.close();
+			} catch (SQLException e) {
+				throw new LcaExpection(
+						"Erro ao fechar conexão com banco de dados.");
+			}
 		}
 	}
 }

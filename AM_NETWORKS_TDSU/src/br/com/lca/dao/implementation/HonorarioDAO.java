@@ -1,13 +1,14 @@
 package br.com.lca.dao.implementation;
 
-import java.util.List;
+import java.util.ArrayList;
+
 import br.com.lca.beans.honorario.Honorario;
 import br.com.lca.exception.LcaExpection;
 
 public class HonorarioDAO implements br.com.lca.dao.interfaces.HonorarioDAO {
 
 	@Override
-	public List<Honorario> obter(Honorario parametros) throws LcaExpection {
+	public ArrayList<Honorario> obter(Honorario parametros) throws LcaExpection {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -29,4 +30,5 @@ public class HonorarioDAO implements br.com.lca.dao.interfaces.HonorarioDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 }

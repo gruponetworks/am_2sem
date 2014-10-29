@@ -7,10 +7,6 @@ public class Periodo {
 	private Calendar dataInicial;
 	private Calendar dataFinal;
 
-	public Periodo() {
-
-	}
-
 	public Periodo(Calendar dataInicial, Calendar dataFinal) {
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
