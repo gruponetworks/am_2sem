@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import br.com.lca.beans.processo.Cliente;
@@ -23,21 +24,24 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 			throws LcaExpection {
 
 		Connection conexaoBanco = null;
+		
 		try {
 			conexaoBanco = ConectionManager.getInstance().getConnection();
 
-			PreparedStatement comandolistar = conexaoBanco
+			PreparedStatement comandoListar = conexaoBanco
 					.prepareStatement("SELECT PROC.NR_PROCESSO, PROC.DS_PROCESSO, CLI.DS_RAZAO_SOCIAL "
 							+ "FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE) "
 							+ "WHERE PROC.NR_PROCESSO = ? AND PROC.DT_FECHAMENTO IS NULL;");
 
-			comandolistar.setInt(1, processo.getCodigo());
-			
-			ResultSet retornoConsulta = comandolistar.executeQuery();
+			comandoListar.setInt(1, processo.getCodigo());
+
+			ResultSet retornoConsulta = comandoListar.executeQuery();
 
 			return geraListaProcesso(retornoConsulta);
+			
 		} catch (SQLException e) {
-			throw new LcaExpection("Erro ao realizar ao listar.");
+			throw new LcaExpection(
+					"Erro ao listar processo. Tente novamente mais tarde.");
 		} finally {
 			ConectionManager.getInstance().closeConnection(conexaoBanco);
 		}
@@ -46,27 +50,120 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 	@Override
 	public ArrayList<Processo> listarProcessoPorCliente(Cliente cliente)
 			throws LcaExpection {
-		// TODO Auto-generated method stub
-		return null;
+
+		Connection conexaoBanco = null;
+		
+		try {
+			conexaoBanco = ConectionManager.getInstance().getConnection();
+
+			PreparedStatement comandoListar = conexaoBanco
+					.prepareStatement("SELECT PROC.NR_PROCESSO, PROC.DS_PROCESSO, CLI.DS_RAZAO_SOCIAL"
+							+ "FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE)"
+							+ "WHERE CLI.DS_RAZAO_SOCIAL = ? AND PROC.DT_FECHAMENTO IS NULL;");
+
+			comandoListar.setString(1, cliente.getNome());
+
+			ResultSet retornoConsulta = comandoListar.executeQuery();
+
+			return geraListaProcesso(retornoConsulta);
+			
+		} catch (SQLException e) {
+			throw new LcaExpection(
+					"Erro ao listar processo. Tente novamente mais tarde.");
+		} finally {
+			ConectionManager.getInstance().closeConnection(conexaoBanco);
+		}
 	}
 
 	@Override
 	public ArrayList<Processo> listarProcessoPorPeriodo(Periodo periodo)
 			throws LcaExpection {
-		// TODO Auto-generated method stub
-		return null;
+
+		Connection conexaoBanco = null;
+		
+		try {
+			conexaoBanco = ConectionManager.getInstance().getConnection();
+
+			PreparedStatement comandoListar = conexaoBanco
+					.prepareStatement("SELECT PROC.NR_PROCESSO, PROC.DS_PROCESSO, CLI.DS_RAZAO_SOCIAL" + 
+							"FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE)" +
+					"WHERE DT_ABERTURA >= TO_DATE(?, 'DD/MM/YYYY') AND DT_ABERTURA <= TO_DATE(?, 'DD/MM/YYYY')" +
+					"AND PROC.DT_FECHAMENTO IS NULL;");
+			
+			SimpleDateFormat formatorDeData = new SimpleDateFormat("dd/MM/yyyy");
+			
+			comandoListar.setString(1, formatorDeData.format(periodo.getDataInicial().getTime()));
+			comandoListar.setString(2, formatorDeData.format(periodo.getDataFinal().getTime()));
+			
+			ResultSet retornoConsulta = comandoListar.executeQuery();
+
+			return geraListaProcesso(retornoConsulta);
+			
+		} catch (SQLException e) {
+			throw new LcaExpection(
+					"Erro ao listar processo. Tente novamente mais tarde.");
+		} finally {
+			ConectionManager.getInstance().closeConnection(conexaoBanco);
+		}
 	}
 
 	@Override
 	public int obterSituacao(Processo processo) throws LcaExpection {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		Connection conexaoBanco = null;
+		
+		try {
+			int situacaoProcesso = 0;
+			
+			conexaoBanco = ConectionManager.getInstance().getConnection();
+			PreparedStatement comandoSql = conexaoBanco.prepareStatement("SELECT NR_SITUACAO FROM T_AM_NTW_PROCESSO WHERE NR_PROCESSO = ?;");
+			
+			comandoSql.setInt(1, processo.getCodigo());
+			
+			ResultSet retornoConsulta = comandoSql.executeQuery();
+			
+			if (retornoConsulta.next()) {
+				situacaoProcesso = retornoConsulta.getInt("NR_SITUACAO");
+			}
+			
+			return situacaoProcesso;
+			
+		} catch (SQLException e) {
+			throw new LcaExpection(
+					"Erro ao obter situação. Tente novamente mais tarde.");
+		} finally {
+			ConectionManager.getInstance().closeConnection(conexaoBanco);
+		}
 	}
 
 	@Override
 	public boolean estaEncerrado(Processo processo) throws LcaExpection {
-		// TODO Auto-generated method stub
-		return false;
+
+		Connection conexaoBanco = null;
+		
+		try {
+			Boolean estaEncerrado = true;
+			
+			conexaoBanco = ConectionManager.getInstance().getConnection();
+			PreparedStatement comandoSql = conexaoBanco.prepareStatement("SELECT DT_FECHAMENTO FROM T_AM_NTW_PROCESSO WHERE NR_PROCESSO = ?;");
+			
+			comandoSql.setInt(1, processo.getCodigo());
+			
+			ResultSet retornoConsulta = comandoSql.executeQuery();
+			
+			if (retornoConsulta.next()) {
+				if(retornoConsulta.getObject("DT_FECHAMENTO").equals(null))
+					estaEncerrado = false;
+			}
+			
+			return estaEncerrado;
+			
+		} catch (SQLException e) {
+			throw new LcaExpection(
+					"Erro ao obter o status do processo. Tente novamente mais tarde.");
+		} finally {
+			ConectionManager.getInstance().closeConnection(conexaoBanco);
+		}
 	}
 
 	private ArrayList<Processo> geraListaProcesso(ResultSet retornoConsulta)
