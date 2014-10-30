@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.honorario.TipoTarefa"/>
 <fullyQualifiedTypeName name="br.com.lca.bo.ProcessoBO"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.implementation.ProcessoDAO"/>
@@ -23,4 +22,5 @@
 <fullyQualifiedTypeName name="br.com.lca.dao.factory.DAOFactory"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 </qualifiedTypeNameHistroy>

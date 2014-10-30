@@ -34,8 +34,8 @@ public class ProcessoServlet extends HttpServlet {
 			HttpServletResponse response) {
 
 		String paginaRetorno = request.getParameter("paginaRetorno");
-
-		switch (request.getParameter("operacao")) {
+		
+		switch (request.getParameter("acao")) {
 
 		case "listarProcesso":
 			listarProcesso(request);
@@ -47,7 +47,8 @@ public class ProcessoServlet extends HttpServlet {
 		}
 
 		try {
-			request.getRequestDispatcher(paginaRetorno).forward(request, response);
+			request.getRequestDispatcher(paginaRetorno).forward(request,
+					response);
 		} catch (ServletException excecao) {
 			excecao.printStackTrace();
 		} catch (IOException excecao) {
@@ -111,6 +112,6 @@ public class ProcessoServlet extends HttpServlet {
 	}
 
 	private boolean isNotNullOrEmpty(String string) {
-		return !(string.equals(null) || string.isEmpty());
+		return !(string.equals(null) || string.trim().isEmpty());
 	}
 }

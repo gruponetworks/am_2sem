@@ -33,7 +33,7 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 			PreparedStatement comandoListar = conexaoBanco
 					.prepareStatement("SELECT PROC.NR_PROCESSO, PROC.DS_PROCESSO, CLI.DS_RAZAO_SOCIAL "
 							+ "FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE) "
-							+ "WHERE PROC.NR_PROCESSO = ? AND PROC.DT_FECHAMENTO IS NULL;");
+							+ "WHERE PROC.NR_PROCESSO = ? AND PROC.DT_FECHAMENTO IS NULL");
 
 			comandoListar.setInt(1, processo.getCodigo());
 
@@ -61,7 +61,7 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 			PreparedStatement comandoListar = conexaoBanco
 					.prepareStatement("SELECT PROC.NR_PROCESSO, PROC.DS_PROCESSO, CLI.DS_RAZAO_SOCIAL"
 							+ "FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE)"
-							+ "WHERE CLI.DS_RAZAO_SOCIAL = ? AND PROC.DT_FECHAMENTO IS NULL;");
+							+ "WHERE CLI.DS_RAZAO_SOCIAL = ? AND PROC.DT_FECHAMENTO IS NULL");
 
 			comandoListar.setString(1, cliente.getNome());
 
@@ -90,7 +90,7 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 					.prepareStatement("SELECT PROC.NR_PROCESSO, PROC.DS_PROCESSO, CLI.DS_RAZAO_SOCIAL"
 							+ "FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE)"
 							+ "WHERE DT_ABERTURA >= TO_DATE(?, 'DD/MM/YYYY') AND DT_ABERTURA <= TO_DATE(?, 'DD/MM/YYYY')"
-							+ "AND PROC.DT_FECHAMENTO IS NULL;");
+							+ "AND PROC.DT_FECHAMENTO IS NULL");
 
 			SimpleDateFormat formatorDeData = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -120,7 +120,7 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 
 			conexaoBanco = ConectionManager.getInstance().getConnection();
 			PreparedStatement comandoSql = conexaoBanco
-					.prepareStatement("SELECT NR_SITUACAO FROM T_AM_NTW_PROCESSO WHERE NR_PROCESSO = ?;");
+					.prepareStatement("SELECT NR_SITUACAO FROM T_AM_NTW_PROCESSO WHERE NR_PROCESSO = ?");
 
 			comandoSql.setInt(1, processo.getCodigo());
 
@@ -153,7 +153,7 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 		try {
 			conexaoBanco = ConectionManager.getInstance().getConnection();
 			PreparedStatement comandoSql = conexaoBanco
-					.prepareStatement("SELECT DT_FECHAMENTO FROM T_AM_NTW_PROCESSO WHERE NR_PROCESSO = ?;");
+					.prepareStatement("SELECT DT_FECHAMENTO FROM T_AM_NTW_PROCESSO WHERE NR_PROCESSO = ?");
 
 			comandoSql.setInt(1, processo.getCodigo());
 

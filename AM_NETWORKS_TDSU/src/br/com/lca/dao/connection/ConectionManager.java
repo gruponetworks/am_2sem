@@ -12,9 +12,9 @@ import br.com.lca.exception.LcaExpection;
  */
 public class ConectionManager {
 
-	String usuario = "";
-	String senha = "";
-	String jdbcUrl = "";
+	String usuario = "OPS$RM71505";
+	String senha = "240595";
+	String jdbcUrl = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
 
 	public static ConectionManager INSTANCE;
 
@@ -24,7 +24,7 @@ public class ConectionManager {
 
 	public static ConectionManager getInstance() throws LcaExpection {
 		try {
-			if (INSTANCE.equals(null)) {
+			if (INSTANCE == null) {
 				INSTANCE = new ConectionManager();
 			}
 			return INSTANCE;

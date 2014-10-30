@@ -19,7 +19,7 @@ public class ProcessoBO {
 
 	public static ProcessoBO getInstance() {
 
-		if (INSTANCE.equals(null)) {
+		if (INSTANCE == null) {
 			INSTANCE = new ProcessoBO();
 		}
 		return INSTANCE;
