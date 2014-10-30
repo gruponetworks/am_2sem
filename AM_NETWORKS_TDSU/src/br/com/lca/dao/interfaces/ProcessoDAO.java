@@ -13,6 +13,6 @@ public interface ProcessoDAO {
 	public ArrayList<Processo> listarProcessoPorNumero(Processo processo) throws LcaExpection;
 	public ArrayList<Processo> listarProcessoPorCliente(Cliente cliente) throws LcaExpection;
 	public ArrayList<Processo> listarProcessoPorPeriodo(Periodo periodo) throws LcaExpection;
-	public int obterSituacao(Processo processo) throws LcaExpection;
-	public boolean estaEncerrado(Processo processo) throws LcaExpection;
+	public Processo obterSituacao(Processo processo) throws LcaExpection;
+	public Processo obterDataEncerramento(Processo processo) throws LcaExpection;
 }

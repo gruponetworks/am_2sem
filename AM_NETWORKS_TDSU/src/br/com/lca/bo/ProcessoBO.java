@@ -43,13 +43,13 @@ public class ProcessoBO {
 		return processoDAO.listarProcessoPorPeriodo(periodo);
 	}
 
-	public boolean estaBloqueado(Processo processo) throws LcaExpection {
-		// TODO Auto-generated method stub
-		return false;
+	public Processo carregaSituacaoProcesso(Processo processo) throws LcaExpection {
+		ProcessoDAO processoDAO = DAOFactory.getProcessoDAO();
+		return processoDAO.obterSituacao(processo);
 	}
 
-	public boolean estaEncerrado(Processo processo) throws LcaExpection {
-		// TODO Auto-generated method stub
-		return false;
+	public Processo obterDataEncerramento(Processo processo) throws LcaExpection {
+		ProcessoDAO processoDAO = DAOFactory.getProcessoDAO();
+		return processoDAO.obterDataEncerramento(processo);
 	}
 }

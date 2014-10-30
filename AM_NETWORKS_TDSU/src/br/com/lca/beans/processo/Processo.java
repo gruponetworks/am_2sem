@@ -8,7 +8,7 @@ public class Processo {
 	private String descricao;
 	private Calendar dataAbertura;
 	private Calendar dataFechamento;
-	private int situacao;
+	private boolean situacaoBloqueio;
 	
 	Cliente cliente;
 	Advogado advogado;
@@ -17,22 +17,22 @@ public class Processo {
 		
 	}
 	
-	public Processo(int codigo) {
-		this.codigo = codigo;
-	}
-		
 	public Processo(int codigo, String descricao, Calendar dataAbertura,
-			Calendar dataFechamento, int situacao, Cliente cliente,
+			Calendar dataFechamento, boolean situacaoBloqueio, Cliente cliente,
 			Advogado advogado) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 		this.dataAbertura = dataAbertura;
 		this.dataFechamento = dataFechamento;
-		this.situacao = situacao;
+		this.situacaoBloqueio = situacaoBloqueio;
 		this.cliente = cliente;
 		this.advogado = advogado;
 	}
 
+	public Processo(int codigo) {
+		this.codigo = codigo;
+	}
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -65,12 +65,12 @@ public class Processo {
 		this.dataFechamento = dataFechamento;
 	}
 
-	public int getSituacao() {
-		return situacao;
+	public boolean estaBloqueado() {
+		return situacaoBloqueio;
 	}
 
-	public void setSituacao(int situacao) {
-		this.situacao = situacao;
+	public void setSituacaoBloqueio(boolean situacaoBloqueio) {
+		this.situacaoBloqueio = situacaoBloqueio;
 	}
 
 	public Cliente getCliente() {
