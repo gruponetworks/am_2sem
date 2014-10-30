@@ -60,8 +60,8 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 
 			PreparedStatement comandoListar = conexaoBanco
 					.prepareStatement("SELECT PROC.NR_PROCESSO, PROC.DS_PROCESSO, CLI.DS_RAZAO_SOCIAL"
-							+ "FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE)"
-							+ "WHERE CLI.DS_RAZAO_SOCIAL = ? AND PROC.DT_FECHAMENTO IS NULL");
+							+ " FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE)"
+							+ " WHERE CLI.DS_RAZAO_SOCIAL = ? AND PROC.DT_FECHAMENTO IS NULL");
 
 			comandoListar.setString(1, cliente.getNome());
 
@@ -88,9 +88,9 @@ public class ProcessoDAO implements br.com.lca.dao.interfaces.ProcessoDAO {
 
 			PreparedStatement comandoListar = conexaoBanco
 					.prepareStatement("SELECT PROC.NR_PROCESSO, PROC.DS_PROCESSO, CLI.DS_RAZAO_SOCIAL"
-							+ "FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE)"
-							+ "WHERE DT_ABERTURA >= TO_DATE(?, 'DD/MM/YYYY') AND DT_ABERTURA <= TO_DATE(?, 'DD/MM/YYYY')"
-							+ "AND PROC.DT_FECHAMENTO IS NULL");
+							+ " FROM T_AM_NTW_PROCESSO PROC INNER JOIN T_AM_NTW_CLIENTE CLI ON (PROC.CD_CLIENTE = CLI.CD_CLIENTE)"
+							+ " WHERE DT_ABERTURA >= TO_DATE(?, 'DD/MM/YYYY') AND DT_ABERTURA <= TO_DATE(?, 'DD/MM/YYYY')"
+							+ " AND PROC.DT_FECHAMENTO IS NULL");
 
 			SimpleDateFormat formatorDeData = new SimpleDateFormat("dd/MM/yyyy");
 

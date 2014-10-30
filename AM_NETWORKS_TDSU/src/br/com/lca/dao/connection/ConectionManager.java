@@ -14,7 +14,7 @@ public class ConectionManager {
 
 	String usuario = "OPS$RM71505";
 	String senha = "240595";
-	String jdbcUrl = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
+	String jdbcUrl = "jdbc:oracle:thin:@192.168.60.15:1521:ORCL";
 
 	public static ConectionManager INSTANCE;
 
