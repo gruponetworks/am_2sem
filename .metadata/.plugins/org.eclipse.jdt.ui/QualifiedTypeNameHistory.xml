@@ -7,9 +7,7 @@
 <fullyQualifiedTypeName name="java.lang.ClassNotFoundException"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.processo.Cliente"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.processo.Periodo"/>
-<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.ProcessoDAO"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.processo.Processo"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.EntidadeLCA"/>
@@ -21,4 +19,8 @@
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.connection.ConectionManager"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.ProcessoDAO"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.factory.DAOFactory"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
 </qualifiedTypeNameHistroy>
