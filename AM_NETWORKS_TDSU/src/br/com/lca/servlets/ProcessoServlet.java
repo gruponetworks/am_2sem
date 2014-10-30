@@ -34,15 +34,11 @@ public class ProcessoServlet extends HttpServlet {
 			HttpServletResponse response) {
 
 		String paginaRetorno = request.getParameter("paginaRetorno");
-		
+
 		switch (request.getParameter("acao")) {
 
 		case "listarProcesso":
 			listarProcesso(request);
-			break;
-		case "verificaBloqueio":
-			break;
-		case "verificaEncerrado":
 			break;
 		}
 
