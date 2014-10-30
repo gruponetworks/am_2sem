@@ -84,7 +84,7 @@ public class ProcessoServlet extends HttpServlet {
 				Calendar dataFinal = Calendar.getInstance();
 
 				SimpleDateFormat formatoData = new SimpleDateFormat(
-						"dd/MM/yyyy");
+						"yyyy-MM-dd");
 
 				dataInicial.setTime(formatoData.parse(periodoDataInicial));
 				dataFinal.setTime(formatoData.parse(periodoDataFinal));
