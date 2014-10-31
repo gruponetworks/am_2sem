@@ -13,7 +13,7 @@ public class Honorario {
 	private TipoTarefa tipoTarefa;
 
 	public Honorario() {
-
+		
 	}
 
 	public Honorario(int codigo, Calendar dataLancamento,
@@ -25,6 +25,10 @@ public class Honorario {
 		this.observacao = observacao;
 		this.numeroProcesso = numeroProcesso;
 		this.setTipoTarefa(tipoTarefa);
+	}
+
+	public Honorario(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public int getCodigo() {

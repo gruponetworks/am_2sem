@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.lca.beans.honorario.Honorario;
 import br.com.lca.beans.processo.Cliente;
 import br.com.lca.beans.processo.Periodo;
 import br.com.lca.beans.processo.Processo;
+import br.com.lca.bo.HonorarioBO;
 import br.com.lca.bo.ProcessoBO;
 import br.com.lca.exception.LcaExpection;
 
@@ -37,6 +39,8 @@ public class HonorarioServlet extends HttpServlet {
 
 		switch (request.getParameter("acao")) {
 
+		case "abrirPagina":
+			break;
 		case "listarHonorario":
 			listarHonorario(request);
 			break;
@@ -62,13 +66,13 @@ public class HonorarioServlet extends HttpServlet {
 		try {
 			String numeroProcesso = request.getParameter("numeroDoProcesso");
 
-			ArrayList<Processo> retornoBusca = new ArrayList<Processo>();
+			ArrayList<Honorario> retornoBusca = new ArrayList<Honorario>();
 
 			if (isNotNullOrEmpty(numeroProcesso)) {
 
-				retornoBusca = ProcessoBO.getInstance()
-						.listarProcessoPorNumero(
-								new Processo(Integer.parseInt(numeroProcesso)));
+				retornoBusca = HonorarioBO.getInstance()
+						.listarHonorarioPorNumero(
+								new Honorario(Integer.parseInt(numeroProcesso)));
 			} else {
 				request.setAttribute("mensagemErro",
 						"Informe um número de processo.");

@@ -11,8 +11,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.EntidadeLCA"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.interfaces.CRUD"/>
-<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.HonorarioDAO"/>
-<fullyQualifiedTypeName name="br.com.lca.beans.honorario.Honorario"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="br.com.lca.exception.LcaExpection"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
@@ -23,4 +21,10 @@
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.HonorarioDAO"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.implementation.HonorarioDAO"/>
+<fullyQualifiedTypeName name="br.com.lca.servlets.HonorarioServlet"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="br.com.lca.beans.honorario.Honorario"/>
+<fullyQualifiedTypeName name="br.com.lca.bo.HonorarioBO"/>
 </qualifiedTypeNameHistroy>
