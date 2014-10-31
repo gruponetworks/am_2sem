@@ -14,13 +14,17 @@
 <fullyQualifiedTypeName name="br.com.lca.dao.interfaces.HonorarioDAO"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.honorario.Honorario"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="br.com.lca.exception.LcaExpection"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.connection.ConectionManager"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.interfaces.ProcessoDAO"/>
-<fullyQualifiedTypeName name="br.com.lca.dao.factory.DAOFactory"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="br.com.lca.exception.LcaExpection"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.implementation.TipoDespesaDAO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="br.com.lca.beans.despesa.TipoDespesa"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.TipoDespesaDAO"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.factory.DAOFactory"/>
 </qualifiedTypeNameHistroy>
