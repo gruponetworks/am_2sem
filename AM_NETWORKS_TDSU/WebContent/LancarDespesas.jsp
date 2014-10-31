@@ -11,7 +11,7 @@
 	<%@ include file="header.jsp"%>
 	
 	<div class="container">
-		<h1>Listar Processos</h1>
+		<h1>Lançar Despesas</h1>
 		<c:if test="${not empty msg}">
 			<div class="alert alert-success">
 				${msg}
@@ -30,7 +30,7 @@
 			<tr>
 				<th>Número</th>
 				<th>Descrição</th>
-				<th>Clientes</th>
+				<th>Cliente</th>
 			</tr>
 			
 			<tr>
@@ -42,18 +42,16 @@
 		</table>
 	</div>
 		
-		
-		
-		<fieldset>
-		
+			<br>
 			<!-- Campo que define a ação na serlvet -->
 			<input type="hidden" name="acao" value="cadastrar">
 			<div class="row">
 			
-				<!-- Labels -->	
-				<div class="form-group col-md-4">
-					<label for="nomedesp">Nome da Despesa</label> 
+			<!-- Labels -->	
+					<div class="form-group col-md-4">
+					<label for="nomedesp">Nome da Despesa</label>
 					<input type="text" name="nomeDaDespesa" class="form-control" id="nomedesp" placeholder="Nome da Despesa" />
+					
 				<br>
 				<class="form-group col-md-4">
 					<label for="datadesp">Data da Despesa</label>
@@ -62,25 +60,28 @@
 				<br>
 				<class="form-group col-md-4">
 					<label for="valordesp">Valor da Despesa</label>
-					<input type="text" name="valorDaDespesa" class="form-control" id="valordesp" placeholder="Valor da Despesa"/>
+					<input type="text" name="valorDaDespesa" class="form-control" id="valordesp" placeholder="0,00"/>
 				<br>
+					
 				<class="form-group col-md-4">
-					<label for="observdesp">Observações</label>
-					<input type="text" name="observacoesDesp" class="form-control" id="observdesp" placeholder="Observações"/>
-			
+  					<label for="observdesp">Observações</label>
+  					<textarea name="observacoes" class="form-control" cols="10" rows="5"  id="observdesp"></textarea> 
+	
+				<br>
 				<!-- Botão -->
+				<div class="form-group">
+					<input type="submit" value="Salvar" class="btn btn-success"/>		
+			
+				<br><br><br><br>
+				
 				<class="form-group">
-					<input type="submit" value="Salvar" class="btn btn-success"/>
+					<input type="submit" value="Listar Despesas" class="btn btn-success"/>
+				<class="form-group">
+					<input type="submit" value="Consultar Nova Despesa" class="btn btn-success"/>
+				</div>
 			</div>
-		</div>
 		</form>
 		
 	</div>
-	</fieldset>
-	
-<!-- Início da tabela -->
-
-
-
 </body>
 </html>

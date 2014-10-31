@@ -15,9 +15,6 @@
 
 	<div class="container">
 		<h1>Listar Processos</h1>
-		<c:if test="${not empty msg}">
-			<div class="alert alert-success">${msg}</div>
-		</c:if>
 		<c:if test="${not empty mensagemErro}">
 			<div class="alert alert-danger">${mensagemErro}</div>
 		</c:if>
