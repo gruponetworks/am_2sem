@@ -10,7 +10,6 @@
 <fullyQualifiedTypeName name="br.com.lca.beans.processo.Processo"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.EntidadeLCA"/>
-<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.CRUD"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.interfaces.HonorarioDAO"/>
 <fullyQualifiedTypeName name="br.com.lca.beans.honorario.Honorario"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -27,4 +26,8 @@
 <fullyQualifiedTypeName name="br.com.lca.beans.despesa.TipoDespesa"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.interfaces.TipoDespesaDAO"/>
 <fullyQualifiedTypeName name="br.com.lca.dao.factory.DAOFactory"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.CRUD"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.interfaces.DespesaDAO"/>
+<fullyQualifiedTypeName name="br.com.lca.beans.despesa.Despesa"/>
+<fullyQualifiedTypeName name="br.com.lca.dao.implementation.DespesaDAO"/>
 </qualifiedTypeNameHistroy>
