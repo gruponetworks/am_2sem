@@ -8,17 +8,18 @@
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle"	
 			data-toggle="dropdown">
-				Despesas <span class="caret"></span>
+				Listar Processos <span class="caret"></span>
 			</a>
 			
 			<ul class="dropdown-menu">
-				<li><a href="cadastro-produto.jsp">Lançar Despesas</a></li>
-				<li><a href="produtoServlet?acao=listar">Consultar Despesas</a></li>
+				<li><a href="ListarProcessosDespesas.jsp">Listar Despesas</a></li>
+				<li><a href="ListarProcessosHonorarios.jsp">Listar Honorários</a></li>
+				<!--  <li><a href="processoServlet?acao=listarProcesso">Consultar Despesas</a></li>-->
 			</ul>
 		</li>		
 	</ul>
 
-	<!-- Links do menu -->
+	<!-- Links do menu 
 	<ul class="nav navbar-nav">
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle"	
@@ -26,9 +27,9 @@
 				Honorários <span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">
-				<li><a href="cadastro-produto.jsp">Lançar Honorários</a></li>
-				<li><a href="produtoServlet?acao=listar">Consultar Honorários</a></li>
+				<li><a href="ListarProcessosHonorarios.jsp">Listar Honorários</a></li>
+				<!--<li><a href="produtoServlet?acao=listar">Consultar Honorários</a></li>
 			</ul>
 		</li>		
-	</ul>
+	</ul>-->
 </div>

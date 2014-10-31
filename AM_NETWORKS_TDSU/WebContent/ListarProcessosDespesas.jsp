@@ -14,10 +14,7 @@
 	<%@ include file="menu.jsp"%>
 
 	<div class="container">
-		<h1>Listar Processos</h1>
-		<c:if test="${not empty msg}">
-			<div class="alert alert-success">${msg}</div>
-		</c:if>
+		<h1>Listar Processos Despesa</h1>
 		<c:if test="${not empty mensagemErro}">
 			<div class="alert alert-danger">${mensagemErro}</div>
 		</c:if>

@@ -12,61 +12,50 @@
 
 	<!-- Adicionar o menu.. -->
 	<%@ include file="menu.jsp"%>
-	
+
 	<div class="container">
-		<h1>Listar Processos</h1>
-		<c:if test="${not empty msg}">
-			<div class="alert alert-success">
-				${msg}
-			</div>
+		<h1>Listar Processos Honorários</h1>
+		<c:if test="${not empty mensagemErro}">
+			<div class="alert alert-danger">${mensagemErro}</div>
 		</c:if>
-		<c:if test="${not empty erro}">
-			<div class="alert alert-danger">
-				${erro}
-			</div>
-		</c:if>
-		<form action="produtoServlet" method="post">
 		<fieldset>
-		
-			<!-- Campo que define a ação na serlvet -->
-			<input type="hidden" name="acao" value="cadastrar">
-			<div class="row">
-			
-				<!-- Labels -->	
-				<div class="form-group col-md-4">
-					<label for="nome">Nome do Cliente</label> 
-					<input type="text" name="nomeDoCliente" class="form-control" id="nome" placeholder="Nome do Cliente" />
-				
-				<br>
-				<class="form-group col-md-4">
-					<label for="nr">Número do Processo</label>
-					<input type="text" name="numeroDoProcesso" class="form-control" id="nr" placeholder="Número do Processo"/>
-				<br>
-				<div class="form-group col-md-4">
-					<label for="ddt">Periodo</label>
-					<input type="date" name ="date" class="form-control" id="ddtt"/>		
+			<form action="processoServlet" method="post">
+				<div class="panel panel-default">
+					<div class="panel-body">
+
+						<!-- Campo que define a ação na serlvet -->
+						<input type="hidden" name="paginaRetorno"
+							value="ListarProcessosHonorarios.jsp"> <input
+							type="hidden" name="acao" value="listarProcesso">
+						<div class="row">
+							<div class="form-group col-md-4">
+								<label for="nr">Número do Processo</label> <input type="text"
+									name="numeroDoProcesso" class="form-control" id="nr"
+									placeholder="Número do Processo" /> <br> <label
+									for="nome">Nome do Cliente</label> <input type="text"
+									name="nomeDoCliente" class="form-control" id="nome"
+									placeholder="Nome do Cliente" /> <br>
+
+								<div>
+									<label for="dataInicio">Período</label> <input type="date"
+										name="dataDe" class="form-control" id="dataInicio" /> <label
+										for="dataFim">até</label> <input type="date" name="dataAte"
+										class="form-control" id="dataFim" />
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				
-				<div class="form-group col-md-4">
-					<label for="ddt">até</label>
-					<input type="date" name ="date" class="form-control" id="ddtt"/>
+				<div class="form-group">
+					<input type="submit" value="Buscar" class="btn btn-success" />
 				</div>
-				
-			</div>
-									
-		</div>
-			
-			<!-- Botão -->
-			<div class="form-group">
-				<input type="submit" value="Buscar" class="btn btn-success"/>
-			</div>
-			
-		</form>
+			</form>
+
+		</fieldset>
 	</div>
-	</fieldset>
-	
-<!-- Início da tabela -->
-<div class="container">
+	<br>
+	<br>
+	<div class="container">
 		<table class="table">
 			<tr>
 				<th>Número</th>
@@ -74,43 +63,27 @@
 				<th>Clientes</th>
 				<th>Ação</th>
 			</tr>
-			
-			<tr>
-				<td>001</td>
-				<td>Lorem ipsum dolor sit amet, consectetur</td>
-				<td>Lorem ipsum dolor sit amet, consectetur</td>
-				<td><input name="LHonor001" type="submit" value="Lançar Honorário" class="btn btn-success"/>
-					<input name="CHonor001" type="submit" value="Consultar Honorário" class="btn btn-success"/>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>002</td>
-				<td>Lorem ipsum dolor sit amet, consectetur</td>
-				<td>Lorem ipsum dolor sit amet, consectetur</td>
-				<td><input name="LHonor002" type="submit" value="Lançar Honorário" class="btn btn-success"/>
-					<input name="CHonor002" type="submit" value="Consultar Honorário" class="btn btn-success"/>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>003</td>
-				<td>Lorem ipsum dolor sit amet, consectetur</td>
-				<td>Lorem ipsum dolor sit amet, consectetur</td>
-				<td><input name="LHonor003" type="submit" value="Lançar Honorário" class="btn btn-success"/>
-					<input name="CHonor003" type="submit" value="Consultar Honorário" class="btn btn-success"/>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>004</td>
-				<td>Lorem ipsum dolor sit amet, consectetur</td>
-				<td>Lorem ipsum dolor sit amet, consectetur</td>
-				<td><input name="LHonor004" type="submit" value="Lançar Honorário" class="btn btn-success"/>
-					<input name="CHonor004" type="submit" value="Consultar Honorário" class="btn btn-success"/>
-				</td>
-			</tr>
-			 			
+
+			<c:forEach var="processo" items="${listaProcesso}">
+				<tr>
+					<td>${processo.codigo}</td>
+					<td>${processo.descricao}</td>
+					<td>${processo.cliente.nome}</td>
+					<td><c:url value="honorarioServlet" var="lancarHonorario">
+							<c:param name="acao" value="lancarHonorario" />
+							<c:param name="codigoProcesso" value="${processo.codigo}" />
+							<c:param name="nomeCliente" value="${processo.cliente.nome}"></c:param>
+						</c:url> <a href="${lancarHonorario}"
+						onclick="return confirm('Tem certeza?')" class="btn btn-default">
+							Lançar Honorário </a> <c:url value="honorarioServlet"
+							var="listarHonorario">
+							<c:param name="acao" value="listarHonorario" />
+							<c:param name="codigoProcesso" value="${processo.codigo}" />
+						</c:url> <a href="${listarHonorario}" class="btn btn-default">
+							Consultar Honorário </a></td>
+				</tr>
+			</c:forEach>
+
 		</table>
 	</div>
 </body>
