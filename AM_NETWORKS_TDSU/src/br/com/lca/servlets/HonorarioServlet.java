@@ -39,7 +39,7 @@ public class HonorarioServlet extends HttpServlet {
 
 		switch (request.getParameter("acao")) {
 
-		case "abrirPagina":
+		case "abrirPaginaLancaHonorario":
 			break;
 		case "listarHonorario":
 			listarHonorario(request);
